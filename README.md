@@ -5,6 +5,7 @@ A comprehensive Java Web-Based Library Management System built using Java Servle
 ## Features
 
 ### Librarian Functionalities
+
 - **Book Management**: Add, edit, delete, and view books in the catalog
 - **Member Management**: Create, update, and delete member accounts
 - **Transaction Management**: Manage borrowing and returning of books
@@ -12,6 +13,7 @@ A comprehensive Java Web-Based Library Management System built using Java Servle
 - **Inventory Reports**: Generate reports on book inventory status and borrowing trends
 
 ### Member Functionalities
+
 - **Book Search**: Search books by title, author, genre, or ISBN
 - **Borrow/Return Books**: Borrow and return books from the library
 - **Borrowing History**: View complete borrowing history and active borrows
@@ -20,7 +22,7 @@ A comprehensive Java Web-Based Library Management System built using Java Servle
 
 ## Technologies Used
 
-- **Java 11**: Core programming language
+- **Java 21**: Core programming language
 - **Java Servlets**: Web application framework
 - **JSP (JavaServer Pages)**: View layer
 - **JDBC**: Database connectivity
@@ -32,7 +34,7 @@ A comprehensive Java Web-Based Library Management System built using Java Servle
 ## Project Structure
 
 ```
-javaproject/
+javaprojectsem3
 ├── src/
 │   ├── main/
 │   │   ├── java/
@@ -63,7 +65,7 @@ javaproject/
 
 ## Prerequisites
 
-- **Java JDK 11** or higher
+- **Java JDK 21**
 - **Maven 3.6+**
 - **MySQL 8.0+**
 - **Apache Tomcat 9.0+** or similar servlet container
@@ -72,20 +74,25 @@ javaproject/
 ## Database Setup
 
 1. **Create MySQL Database**:
+
    ```sql
    CREATE DATABASE librarydb;
    ```
 
 2. **Run SQL Script**:
+
    - Open MySQL command line or MySQL Workbench
    - Execute the SQL script from `src/main/resources/database.sql`
+
    ```bash
    mysql -u root -p librarydb < src/main/resources/database.sql
    ```
 
 3. **Configure Database Connection**:
+
    - Edit `src/main/resources/database.properties`
    - Update database credentials:
+
      ```properties
      db.username=root
      db.password=your_password
@@ -96,6 +103,7 @@ javaproject/
 ### Using Maven
 
 1. **Build the project**:
+
    ```bash
    mvn clean package
    ```
@@ -107,52 +115,63 @@ javaproject/
 ### Using IDE
 
 1. **Import Project**:
+
    - Open your IDE
    - Import as Maven project
    - Wait for dependencies to download
 
 2. **Configure Tomcat**:
+
    - Add Tomcat server configuration
    - Deploy the webapp
 
 3. **Run**:
    - Start Tomcat server
-   - Access application at `http://localhost:8080/LibraryManagementSystem`
+   - Access application at `http://localhost:8084/LibraryManagementSystem`
 
 ## Default Accounts
 
 ### Librarian Account
+
 - **Email**: `admin@library.com`
 - **Password**: `admin123`
 
 ### Member Account
+
 - **Email**: `john.doe@email.com`
 - **Password**: `member123`
+
+⚠️ Default credentials are for demo/testing purposes only.
 
 ## Key Features Implementation
 
 ### OOP Concepts
+
 - **Polymorphism**: DAO interfaces with multiple implementations
 - **Inheritance**: Model classes with proper inheritance hierarchy
 - **Exception Handling**: Custom exceptions (DatabaseException, BusinessException)
 - **Interfaces**: DAO interfaces for abstraction
 
 ### Collections & Generics
+
 - Use of `List<T>`, `Map<K,V>`, and generics throughout the application
 - Stream API for data processing
 - Collection operations for grouping and filtering
 
 ### Multithreading
+
 - `NotificationService`: Asynchronous notification sending using ExecutorService
 - `ReportService`: Concurrent report generation using CompletableFuture
 
 ### JDBC
+
 - Connection pooling with Apache DBCP2
 - Prepared statements for SQL injection prevention
 - Transaction management
 - ResultSet mapping to model objects
 
 ### Servlets & Web Integration
+
 - RESTful URL patterns
 - Session management
 - Request/response handling
@@ -190,25 +209,27 @@ javaproject/
 ## Troubleshooting
 
 ### Database Connection Issues
+
 - Verify MySQL service is running
 - Check database credentials in `database.properties`
 - Ensure database `librarydb` exists
 
 ### Build Errors
-- Ensure Java 11+ is installed
+
+- Ensure Java 21 is installed
 - Run `mvn clean install` to refresh dependencies
 - Check Maven settings.xml configuration
 
 ### Deployment Issues
+
 - Verify Tomcat version compatibility (9.0+)
 - Check WAR file is deployed correctly
 - Review Tomcat logs for errors
 
 ## License
 
-This project is created for educational purposes.
+This project is developed for educational and learning purposes.
 
 ## Contact
 
 For issues or questions, please refer to the project repository.
-
