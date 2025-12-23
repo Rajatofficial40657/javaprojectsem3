@@ -1,20 +1,23 @@
-# 🚀 Running Guide – Library Management System
+# 🚀 How to Run Library Management System
 
-This guide explains how to build, deploy, and run the **Library Management System** on your local machine.
+This guide explains how to see the **Library Management System** running on your local machine.
 
 ---
 
 ## ✅ Prerequisites
 
-Ensure the following are installed:
+Before running the application, make sure you have the following installed:
 
 ### 1️⃣ Java
-- **Java JDK 21** (recommended)
+- **Java JDK 11 or higher (Java 21 recommended)**
+- Download: https://www.oracle.com/java/technologies/downloads/
 - Verify:
 ```bash
 java -version
 2️⃣ Maven
 Maven 3.6+
+
+Download: https://maven.apache.org/download.cgi
 
 Verify:
 
@@ -24,7 +27,9 @@ mvn -version
 3️⃣ MySQL
 MySQL 8.0+
 
-MySQL Server must be running
+Download: https://dev.mysql.com/downloads/mysql/
+
+Make sure MySQL Server is running
 
 Verify:
 
@@ -34,13 +39,15 @@ mysql --version
 4️⃣ Apache Tomcat
 Apache Tomcat 9.0
 
-Example installation path:
+Download: https://tomcat.apache.org/download-90.cgi
+
+Example install path:
 
 makefile
 Copy code
 C:\tomcat9
-🗄️ Step 1: Database Setup
-1️⃣ Login to MySQL
+🗄️ Step 1: Setup MySQL Database
+1️⃣ Start MySQL
 bash
 Copy code
 mysql -u root -p
@@ -68,12 +75,12 @@ transactions
 notifications
 
 ⚙️ Step 2: Configure Database Connection
-Edit the file:
+Open:
 
 css
 Copy code
 src/main/resources/database.properties
-Example configuration:
+Update it as follows:
 
 properties
 Copy code
@@ -86,10 +93,10 @@ db.initialSize=5
 db.maxActive=20
 db.maxIdle=10
 db.minIdle=5
-📌 Replace YOUR_MYSQL_PASSWORD with your actual MySQL password.
+📌 Replace YOUR_MYSQL_PASSWORD with your real MySQL password.
 
 🛠️ Step 3: Build the Project
-Navigate to the project root:
+Navigate to project root:
 
 bash
 Copy code
@@ -99,13 +106,18 @@ Build the project:
 bash
 Copy code
 mvn clean package
-✅ On success, this file will be created:
+✅ On success:
+
+nginx
+Copy code
+BUILD SUCCESS
+WAR file generated:
 
 aspectj
 Copy code
 target/LibraryManagementSystem.war
-🚢 Step 4: Deploy on Tomcat
-1️⃣ Copy WAR file
+🚢 Step 4: Deploy to Tomcat
+1️⃣ Copy WAR File
 bash
 Copy code
 copy target\LibraryManagementSystem.war C:\tomcat9\webapps\
@@ -113,9 +125,9 @@ copy target\LibraryManagementSystem.war C:\tomcat9\webapps\
 bash
 Copy code
 C:\tomcat9\bin\startup.bat
-Wait until Tomcat starts completely.
+Wait until Tomcat fully starts.
 
-🌐 Step 5: Access Application
+🌐 Step 5: Access the Application
 Open browser:
 
 bash
@@ -134,8 +146,8 @@ Password: member123
 
 ⚠️ Default credentials are for demo/testing purposes only.
 
-🧪 Step 6: Test Features
-Librarian
+🧪 Step 6: Test the Application
+Librarian Features
 Dashboard statistics
 
 Add / Edit / Delete books
@@ -146,10 +158,10 @@ Borrow & return books
 
 Notifications & reports
 
-Member
+Member Features
 Search books
 
-Borrow / return books
+Borrow & return books
 
 View borrowing history
 
@@ -160,11 +172,16 @@ bash
 Copy code
 C:\tomcat9\bin\shutdown.bat
 🧯 Troubleshooting
-❌ MySQL Access Denied
-Verify username/password in database.properties
+❌ Cannot connect to MySQL
+Ensure MySQL is running
 
-Ensure MySQL service is running
+Check database.properties
 
+Verify login:
+
+bash
+Copy code
+mysql -u root -p
 ❌ Port Already in Use
 Change port in:
 
@@ -176,15 +193,22 @@ Example:
 xml
 Copy code
 <Connector port="8084" />
-❌ 404 or 500 Error
-Ensure WAR is deployed correctly
+❌ 404 Not Found
+Verify WAR deployment
 
 Check logs:
 
 csharp
 Copy code
 C:\tomcat9\logs\catalina.out
-✅ Notes
+❌ 500 Internal Server Error
+Check Tomcat logs
+
+Verify database tables
+
+Check JSP compilation errors
+
+📝 Notes
 Context Path: /LibraryManagementSystem
 
 Database: librarydb
@@ -193,8 +217,9 @@ Server: Apache Tomcat 9
 
 Build Tool: Maven
 
-🎓 Project Status
-✅ Database connected
-✅ Application deployed
-✅ Login working
-✅ Dashboard operational
+✅ Project Status
+✔ Database connected
+✔ WAR deployed
+✔ Login working
+✔ Dashboard functional
+
